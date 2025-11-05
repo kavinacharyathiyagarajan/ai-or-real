@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function App() {
   const [currentView, setCurrentView] = useState('home');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [score, setScore] = useState({ correct: 0, total: 0 });
   const [showFeedback, setShowFeedback] = useState(false);
-  const [userGuess, setUserGuess] = useState(null);
+  const [userGuess, setUserGuess] = useState<boolean | null>(null);
 
   // Game images data - randomized order to avoid patterns (10 rounds)
   const gameImages = [
