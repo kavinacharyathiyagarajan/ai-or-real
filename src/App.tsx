@@ -6,7 +6,6 @@ function App() {
   const [score, setScore] = useState({ correct: 0, total: 0 });
   const [showFeedback, setShowFeedback] = useState(false);
   const [userGuess, setUserGuess] = useState(null);
-  const [gameComplete, setGameComplete] = useState(false);
 
   // Game images data - randomized order to avoid patterns (10 rounds)
   const gameImages = [
@@ -28,10 +27,9 @@ function App() {
     setScore({ correct: 0, total: 0 });
     setShowFeedback(false);
     setUserGuess(null);
-    setGameComplete(false);
   };
 
-  const handleGuess = (isAIGuess) => {
+  const handleGuess = (isAIGuess: boolean) => {
     const currentImage = gameImages[currentImageIndex];
     const isCorrect = isAIGuess === currentImage.isAI;
     
@@ -49,7 +47,6 @@ function App() {
       setShowFeedback(false);
       setUserGuess(null);
     } else {
-      setGameComplete(true);
       setCurrentView('results');
     }
   };

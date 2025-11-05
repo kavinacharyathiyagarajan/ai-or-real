@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ImageData, getGameImages } from '../data/images';
+import { getGameImages } from '../data/images';
+import type { ImageData } from '../data/images';
 
 interface GameProps {
   onGameEnd: (score: { correct: number; total: number }) => void;
@@ -54,15 +55,6 @@ const Game: React.FC<GameProps> = ({ onGameEnd, onBackToHome }) => {
     }
   };
 
-  const resetGame = () => {
-    const gameImageSet = getGameImages();
-    setImages(gameImageSet);
-    setCurrentImageIndex(0);
-    setScore({ correct: 0, total: 0 });
-    setGameState('playing');
-    setUserGuess(null);
-    setShowFeedback(false);
-  };
 
   if (images.length === 0) {
     return (
